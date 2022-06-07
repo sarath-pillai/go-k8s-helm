@@ -1,0 +1,9 @@
+apiVersion: v2
+name: go-k8s-helm 
+description: A Helm Chart for demonstrating a go based hello world app
+
+type: application
+
+version: 1.0.0
+
+appVersion: "1.0.0"

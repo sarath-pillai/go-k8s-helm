@@ -1,0 +1,10 @@
+Domain: 'go-k8s-helm.demo.slashroot.in'
+replicaCount: 1
+
+image:
+  repository: go-k8s-helm
+  tag: latest
+  registry: sarathp88
+
+service:
+  port: 8080
