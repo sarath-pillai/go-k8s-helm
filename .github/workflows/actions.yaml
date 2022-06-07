@@ -19,3 +19,11 @@ jobs:
         run: docker build . --file Dockerfile --tag sarathp88/go-k8s-helm:latest
       - name: Push the latest Docker image
         run: docker push sarathp88/go-k8s-helm:latest
+      - name: Install Helm release
+        uses: hiberbee/github-action-helm@latest
+        env:
+          KUBECONFIG_FILE: '${{ secrets.KUBECONFIG_FILE }}'
+          AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        with:
+          helm: upgrade --install go-k8s-helm helm/
