@@ -12,7 +12,7 @@ jobs:
       - name: Login to DockerHub Registry
         run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
       - name: Build the tagged Docker image
-        run: docker build --tag sarathp88/go-k8s-helm:${{ github.sha }}
+        run: docker build -t sarathp88/go-k8s-helm:${{ github.sha }} .
       - name: Push the tagged Docker image
         run: docker push sarathp88/go-k8s-helm:${{ github.sha }}
       - name: Build the latest Docker image
