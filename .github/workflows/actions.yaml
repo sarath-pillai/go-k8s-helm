@@ -33,4 +33,4 @@ jobs:
           AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          helm: upgrade --install --set image.tag=${{ github.sha }} ./go-k8s-helm-1.0.0.tgz
+          helm: upgrade --install --set image.tag=${{ github.sha }} /home/runner/work/go-k8s-helm/go-k8s-helm/go-k8s-helm-1.0.0.tgz
