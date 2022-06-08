@@ -10,7 +10,7 @@ spec:
     - host: {{ $.Values.Domain | quote }}
       http:
         paths:
-          - path: $.Values.Path 
+          - path: /
             backend:
               serviceName: {{ include "helm.fullname" . }} 
               servicePort: {{ .Values.service.port }}
