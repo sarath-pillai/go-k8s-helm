@@ -16,5 +16,5 @@ spec:
               servicePort: {{ .Values.service.port }}
   tls:
     - hosts:
-      - $.Values.Domain 
+      - {{ $.Values.Domain }}
       secretName: {{ $.Values.Domain }}
