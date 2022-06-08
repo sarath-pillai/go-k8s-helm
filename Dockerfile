@@ -2,13 +2,11 @@ FROM golang:1.18.3 as build
 
 COPY app /opt/app
 WORKDIR /opt/app
-ENV GOOS=linux
-ENV GOARCH=amd64
+
 RUN go env -w GO111MODULE=off && \
-    go build
+    CGO_ENABLED=0 GOOS=linux go build -a -ldflags '-w -extldflags "-static"' ./main
 
-
-FROM amd64/alpine:latest
+FROM scratch
 COPY --from=build /opt/app/main /opt/
 
 ENTRYPOINT ["/opt/main"]
