@@ -14,7 +14,7 @@ func main() {
   http.HandleFunc("/", handler)
   http.HandleFunc("/counter", counter)
   http.HandleFunc("/reqdetails", reqdetails)
-  log.Fatal(http.ListenAndServe("localhost:8080", nil))
+  log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
