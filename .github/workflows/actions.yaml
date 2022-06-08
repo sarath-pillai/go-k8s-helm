@@ -27,10 +27,11 @@ jobs:
       - name: Helm Package
         run: |
           helm package --app-version=${{ github.sha }} ./helm
-      - name: Update Kube config
-        uses: tale/kubectl-action@v1
+      - name: Set Kubernetes Context
+        uses: azure/k8s-set-context@v1
         with:
-          base64-kube-config: ${{ secrets.KUBECONFIG_FILE }} 
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBECONFIG_FILE }} 
       - name: Install Helm release
         env:
           AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
