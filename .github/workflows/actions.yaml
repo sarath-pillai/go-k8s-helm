@@ -28,6 +28,7 @@ jobs:
         run: |
           helm package --app-version=${{ github.sha }} ./helm
       - name: Install Helm release
+        uses: 'deliverybot/helm@v1'
         env:
           KUBECONFIG_FILE: '${{ secrets.KUBECONFIG_FILE }}'
           AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
