@@ -7,7 +7,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
   rules:
-    - host: $.Values.Domain
+    - host: {{ $.Values.Domain | quote }}
       http:
         paths:
           - path: $.Values.Path 
@@ -17,4 +17,4 @@ spec:
   tls:
     - hosts:
       - $.Values.Domain 
-      secretName: $.Values.Domain
+      secretName: {{ $.Values.Domain }}
