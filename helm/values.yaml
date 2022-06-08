@@ -1,4 +1,4 @@
-Domain: 'go-k8s-helm.demo.slashroot.in'
+Domain: go-k8s-helm.demo.slashroot.in
 replicaCount: 1
 
 image:
